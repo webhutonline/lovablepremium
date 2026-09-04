@@ -1,1 +1,70 @@
-﻿{"manifest_version":3,"name":"Lovable","version":"2.5","description":"The first extension on the market with native chat, frozen credits, and unlimited prompts. Work with your Lovable projects without worrying about limits.","permissions":["storage","activeTab","tabs","scripting","alarms","sidePanel"],"host_permissions":["https://lovable.dev/*","https://*.lovable.dev/*","https://api.lovable.dev/*","https://io.eklas.dev/*","https://text.pollinations.ai/*"],"background":{"service_worker":"background.js","type":"module"},"content_scripts":[{"matches":["https://lovable.dev/projects/*","https://*.lovable.dev/projects/*"],"js":["content/inject.js"],"run_at":"document_start","world":"MAIN"},{"matches":["https://lovable.dev/projects/*","https://*.lovable.dev/projects/*"],"js":["content/content.js"],"css":["content/content.css"],"run_at":"document_start"}],"action":{"default_title":"Lovable","default_icon":{"16":"icons/icon16.png","32":"icons/icon32.png","48":"icons/icon48.png","128":"icons/icon128.png"}},"side_panel":{"default_path":"popup/popup.html"},"icons":{"16":"icons/icon16.png","32":"icons/icon32.png","48":"icons/icon48.png","128":"icons/icon128.png"},"web_accessible_resources":[{"resources":["popup/popup.html","popup/popup.css","popup/popup.js","icons/*"],"matches":["https://lovable.dev/*","https://*.lovable.dev/*"]}],"options_page":"options/options.html"}
+﻿{
+  "manifest_version": 3,
+  "name": "Lovable",
+  "version": "3.1",
+  "description": "The first extension on the market with native chat, frozen credits, and unlimited prompts. Work with your Lovable projects without worrying about limits.",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "tabs",
+    "scripting",
+    "alarms",
+    "sidePanel"
+  ],
+  "host_permissions": [
+    "https://lovable.dev/*",
+    "https://*.lovable.dev/*",
+    "https://api.lovable.dev/*",
+    "https://io.eklas.dev/*",
+    "https://text.pollinations.ai/*"
+  ],
+  "background": { "service_worker": "background.js", "type": "module" },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://lovable.dev/projects/*",
+        "https://*.lovable.dev/projects/*"
+      ],
+      "js": ["content/inject.js"],
+      "run_at": "document_start",
+      "world": "MAIN"
+    },
+    {
+      "matches": [
+        "https://lovable.dev/projects/*",
+        "https://*.lovable.dev/projects/*"
+      ],
+      "js": ["content/content.js"],
+      "css": ["content/content.css"],
+      "run_at": "document_start"
+    }
+  ],
+  "action": {
+    "default_title": "Lovable",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "side_panel": { "default_path": "popup/popup.html" },
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "popup/popup.html",
+        "popup/popup.css",
+        "popup/popup.js",
+        "icons/*"
+      ],
+      "matches": ["https://lovable.dev/*", "https://*.lovable.dev/*"]
+    }
+  ],
+  "options_page": "options/options.html"
+}
