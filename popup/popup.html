@@ -1,0 +1,1461 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>ashik.shop</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Orbitron:wght@500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <div class="gradient-border"></div>
+    <div class="bg-orbs">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
+    </div>
+    <div class="particles" id="particles"></div>
+    <header>
+      <a class="brand" href="#home" aria-label="ashik.shop home"
+        ><img src="../icons/logo-mark.svg" alt="" class="brand-mark" />
+        <span class="brand-wordmark">ashik.shop</span></a
+      >
+      <div class="header-right">
+        <button
+          id="window-mode"
+          type="button"
+          class="theme-toggle window-mode-btn"
+          title="Open in floating window"
+          aria-label="Open in window"
+        >
+          <svg
+            width="14"
+            height="14"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M15 3h6v6" />
+            <path d="M10 14L21 3" />
+            <path
+              d="M21 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5"
+            />
+          </svg>
+        </button>
+        <button
+          id="theme-toggle"
+          type="button"
+          class="theme-toggle"
+          title="Toggle theme (light/dark)"
+          aria-label="Toggle theme"
+        >
+          <svg
+            class="theme-icon-dark"
+            width="14"
+            height="14"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+          </svg>
+          <svg
+            class="theme-icon-light"
+            width="14"
+            height="14"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="12" cy="12" r="4" />
+            <line x1="12" y1="2" x2="12" y2="4" />
+            <line x1="12" y1="20" x2="12" y2="22" />
+            <line x1="4.93" y1="4.93" x2="6.34" y2="6.34" />
+            <line x1="17.66" y1="17.66" x2="19.07" y2="19.07" />
+            <line x1="2" y1="12" x2="4" y2="12" />
+            <line x1="20" y1="12" x2="22" y2="12" />
+            <line x1="4.93" y1="19.07" x2="6.34" y2="17.66" />
+            <line x1="17.66" y1="6.34" x2="19.07" y2="4.93" />
+          </svg>
+        </button>
+        <span class="version" id="ver"></span>
+        <span class="status-dot" id="api-dot" title="Connection status"></span>
+      </div>
+    </header>
+    <main>
+      <section id="view-license" class="view" hidden>
+        <div class="license-hero">
+          <div class="lock-icon">
+            <svg
+              width="32"
+              height="32"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+              <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+            </svg>
+          </div>
+          <h2 class="lic-headline" id="lic-headline">Activate your license</h2>
+          <p class="lic-msg" id="lic-msg">
+            Paste your key below to unlock Lovable.
+          </p>
+        </div>
+        <div class="input-wrapper">
+          <input
+            id="lic-input"
+            class="lic-input"
+            placeholder="XXXX-XXXX-XXXX-XXXX"
+            autocomplete="off"
+            spellcheck="false"
+          />
+          <div class="input-glow"></div>
+        </div>
+        <button id="lic-activate" type="button" class="primary-btn">
+          <span class="btn-text">Activate License</span>
+          <span class="btn-icon">→</span>
+        </button>
+        <p class="lic-error" id="lic-error" hidden></p>
+        <div class="license-features">
+          <div class="feature-chip">
+            <span class="chip-icon">⚡</span> <span>Unlimited Credits</span>
+          </div>
+          <div class="feature-chip">
+            <span class="chip-icon">🛡️</span> <span>Secure</span>
+          </div>
+          <div class="feature-chip">
+            <span class="chip-icon">∞</span> <span>Optimized Prompts</span>
+          </div>
+        </div>
+      </section>
+      <section id="view-main" class="view" hidden>
+        <div id="ops-notice" class="ops-notice" hidden>
+          <div class="ops-notice-title" id="ops-notice-title"></div>
+          <div class="ops-notice-msg" id="ops-notice-msg"></div>
+          <pre class="ops-notice-notes" id="ops-notice-notes" hidden></pre>
+          <button
+            id="ops-notice-action"
+            type="button"
+            class="ops-notice-action"
+            hidden
+          >
+            Update
+          </button>
+        </div>
+        <nav class="tabs" role="tablist" aria-label="Navigation">
+          <button
+            type="button"
+            class="tab"
+            role="tab"
+            data-tab="home"
+            data-active="true"
+            aria-selected="true"
+          >
+            <svg
+              width="13"
+              height="13"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="M3 12l2-2m0 0l7-7 7 7m-9 2v7a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-7"
+              />
+            </svg>
+            <span>Home</span>
+          </button>
+          <button
+            type="button"
+            class="tab"
+            role="tab"
+            data-tab="project"
+            data-active="false"
+            aria-selected="false"
+          >
+            <svg
+              width="13"
+              height="13"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"
+              />
+            </svg>
+            <span>Project</span>
+          </button>
+          <button
+            type="button"
+            class="tab"
+            role="tab"
+            data-tab="chat"
+            data-active="false"
+            aria-selected="false"
+          >
+            <svg
+              width="13"
+              height="13"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+              />
+            </svg>
+            <span>Chat</span>
+          </button>
+        </nav>
+        <div class="tab-panel" data-panel="home">
+          <div class="toggle-area" id="toggle-area">
+            <div class="ripple-container" id="ripple-container"></div>
+            <div class="ambient-glow" id="ambient-glow"></div>
+            <button
+              id="big-toggle"
+              class="power-toggle"
+              type="button"
+              aria-pressed="false"
+            >
+              <div class="power-ring">
+                <svg class="power-svg" viewBox="0 0 120 120">
+                  <circle class="ring-track" cx="60" cy="60" r="52" />
+                  <circle class="ring-fill" cx="60" cy="60" r="52" />
+                </svg>
+                <div class="power-core">
+                  <svg
+                    class="power-icon"
+                    width="28"
+                    height="28"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                  >
+                    <path d="M12 2v6" />
+                    <path d="M18.4 6.6a9 9 0 1 1-12.8 0" />
+                  </svg>
+                </div>
+              </div>
+              <span class="power-label" id="power-label">OFF</span>
+            </button>
+          </div>
+          <div id="toggle-error" class="toggle-error" hidden role="alert">
+            <span class="toggle-error-icon"
+              ><svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="12" cy="12" r="10" />
+                <line x1="12" y1="8" x2="12" y2="12" />
+                <line x1="12" y1="16" x2="12.01" y2="16" />
+              </svg> </span
+            ><span class="toggle-error-text" id="toggle-error-text"></span>
+          </div>
+          <div class="info-grid">
+            <div class="info-card" data-tilt>
+              <span class="info-icon">✦</span>
+              <div class="info-content">
+                <span class="info-label">Plan</span>
+                <span class="info-value" id="lic-plan">—</span>
+              </div>
+            </div>
+            <div class="info-card" data-tilt>
+              <span class="info-icon">⏱</span>
+              <div class="info-content">
+                <span class="info-label">Expires</span>
+                <span class="info-value" id="lic-expires">—</span>
+              </div>
+            </div>
+          </div>
+          <div class="expiry-bar-wrap" id="expiry-bar-wrap" hidden>
+            <div class="expiry-bar-header">
+              <span class="expiry-bar-label">License validity</span>
+              <span class="expiry-bar-pct" id="expiry-bar-pct">—</span>
+            </div>
+            <div class="expiry-bar-track">
+              <div class="expiry-bar-fill" id="expiry-bar-fill"></div>
+            </div>
+          </div>
+          <div class="usage-section">
+            <div class="usage-header">
+              <span class="usage-title">Daily usage</span>
+              <span class="usage-today" id="usage-today">0 today</span>
+            </div>
+            <div class="usage-chart" id="usage-chart"></div>
+            <div class="usage-labels" id="usage-labels"></div>
+          </div>
+          <div id="active-banner" class="active-banner" hidden>
+            <div class="active-banner-glow"></div>
+            <div class="active-banner-content">
+              <div class="active-banner-icon">
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+              </div>
+              <div class="active-banner-text">
+                <span class="active-banner-title">Extension Enabled</span>
+                <span class="active-banner-msg"
+                  >Send your prompts directly in Lovable or through our
+                  extension.</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tab-panel" data-panel="project" hidden>
+          <div class="project-guide">
+            <div class="project-guide-hero">
+              <div class="project-guide-check">✓</div>
+              <div>
+                <div class="project-guide-kicker">Please read carefully</div>
+                <h2 class="project-guide-title">How to Use</h2>
+              </div>
+            </div>
+            <div class="project-guide-warning">
+              🔑 অরিজিনাল Key দিলে নিশ্চিত ব্যবহার করতে পারবেন।
+            </div>
+            <div class="project-guide-progress"></div>
+            <div class="project-guide-scroll">
+              <article class="project-rule">
+                <div class="project-rule-head">
+                  <span class="project-rule-num">1</span
+                  ><span>শুরু করার আগে</span>
+                </div>
+                <ul>
+                  <li>নিয়মিত আপনার project backup রাখুন।</li>
+                  <li>
+                    Prompt শুরু হলে Stop, Reload বা tab বন্ধ করবেন না; সম্পূর্ণ
+                    শেষ হতে দিন।
+                  </li>
+                  <li>
+                    নতুন project-এর প্রথম prompt প্রায় ১ credit নিতে পারে।
+                  </li>
+                </ul>
+              </article>
+              <article class="project-rule">
+                <div class="project-rule-head">
+                  <span class="project-rule-num">2</span
+                  ><span>সঠিক ব্যবহার</span>
+                </div>
+                <ul>
+                  <li>
+                    License activate করার পর project খুলে Lovable page refresh
+                    করুন।
+                  </li>
+                  <li>
+                    Build, gpt-5.4-pro, Shield ON এবং Native ON আছে কি না দেখুন।
+                  </li>
+                  <li>
+                    Prompt পাঠানোর পরে ‘Lovable’ দেখা গেলে free mode active।
+                    নিজের prompt text দেখা গেলে আবার পাঠাবেন না—refresh করে আবার
+                    sync করুন।
+                  </li>
+                </ul>
+              </article>
+              <article class="project-rule">
+                <div class="project-rule-head">
+                  <span class="project-rule-num">3</span
+                  ><span>Credit অস্বাভাবিকভাবে কাটলে</span>
+                </div>
+                <ul>
+                  <li>
+                    Project Settings → Invite Member থেকে অন্য account যোগ করুন।
+                  </li>
+                  <li>
+                    Invited account-এ switch করে সঠিক workspace নির্বাচন করুন।
+                  </li>
+                  <li>
+                    পুরোনো/duplicate extension disable করে শুধু Lovable Pro v3.1
+                    চালু রাখুন।
+                  </li>
+                </ul>
+              </article>
+              <article class="project-rule">
+                <div class="project-rule-head">
+                  <span class="project-rule-num">4</span
+                  ><span>CAPTCHA / Verification</span>
+                </div>
+                <ul>
+                  <li>
+                    Extension বন্ধ করে official chat-এ prompt দিন ও CAPTCHA
+                    সম্পন্ন করুন।
+                  </li>
+                  <li>
+                    তারপর extension চালু করে page reload করুন। প্রয়োজন হলে
+                    network/VPN server বদলান বা sign out/in করুন।
+                  </li>
+                </ul>
+              </article>
+              <article class="project-rule">
+                <div class="project-rule-head">
+                  <span class="project-rule-num">5</span
+                  ><span>Workspace-এ ০ credit</span>
+                </div>
+                <ul>
+                  <li>
+                    Extension ব্যবহারের জন্য active workspace-এ অন্তত ১ credit
+                    রাখুন।
+                  </li>
+                  <li>
+                    Daily credit reset-এর জন্য অপেক্ষা করুন অথবা credit থাকা
+                    workspace/account ব্যবহার করুন।
+                  </li>
+                </ul>
+              </article>
+              <article class="project-rule">
+                <div class="project-rule-head">
+                  <span class="project-rule-num">6</span
+                  ><span>Suspicious activity</span>
+                </div>
+                <ul>
+                  <li>Network বা IP বদলে আবার চেষ্টা করুন।</li>
+                  <li>সমস্যা থাকলে অন্য workspace/account ব্যবহার করুন।</li>
+                </ul>
+              </article>
+              <div class="project-guide-done">
+                ✓ নির্দেশিকার শেষ অংশে পৌঁছেছেন
+              </div>
+            </div>
+            <label class="project-guide-consent"
+              ><input type="checkbox" id="project-guide-agree" />
+              <span>আমি সব নিয়ম পড়েছি এবং বুঝেছি।</span></label
+            >
+            <button
+              type="button"
+              class="project-guide-button"
+              id="project-guide-continue"
+              disabled
+            >
+              Agree &amp; Continue
+            </button>
+            <p class="project-guide-note">
+              Agree না করা পর্যন্ত Chat ব্যবহার করা যাবে না।
+            </p>
+          </div>
+          <div class="tab-panel-hint" id="project-hint">
+            <div class="hint-icon">
+              <svg
+                width="22"
+                height="22"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M18 8h1a4 4 0 0 1 0 8h-1" />
+                <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z" />
+                <line x1="6" y1="1" x2="6" y2="4" />
+                <line x1="10" y1="1" x2="10" y2="4" />
+                <line x1="14" y1="1" x2="14" y2="4" />
+              </svg>
+            </div>
+            <div class="hint-text">
+              <h4 class="hint-title">Open a Lovable project</h4>
+              <p class="hint-msg">
+                Actions become available when you are on
+                <code>lovable.dev/projects/&lt;id></code>.
+              </p>
+            </div>
+          </div>
+          <button
+            id="create-project-btn"
+            type="button"
+            class="create-project-btn"
+          >
+            <span class="cp-icon"
+              ><svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <line x1="12" y1="5" x2="12" y2="19" />
+                <line x1="5" y1="12" x2="19" y2="12" />
+              </svg> </span
+            ><span class="cp-text">Create New Project</span>
+            <span class="cp-arrow">→</span>
+          </button>
+          <button
+            id="download-project"
+            type="button"
+            class="download-btn"
+            hidden
+          >
+            <span class="download-icon"
+              ><svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                <polyline points="7 10 12 15 17 10" />
+                <line x1="12" y1="15" x2="12" y2="3" />
+              </svg> </span
+            ><span class="download-text">Download project (.zip)</span>
+            <span class="download-spinner" hidden></span>
+          </button>
+          <p class="download-status" id="download-status" hidden></p>
+          <button
+            id="hide-badge"
+            type="button"
+            class="download-btn hide-badge-btn"
+            hidden
+          >
+            <span class="download-icon hide-badge-icon"
+              ><svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"
+                />
+                <line x1="1" y1="1" x2="23" y2="23" />
+              </svg> </span
+            ><span class="download-text" id="hide-badge-text"
+              >Hide Lovable badge</span
+            >
+            <span class="download-spinner" hidden></span>
+          </button>
+          <p class="download-status" id="hide-badge-status" hidden></p>
+          <button
+            id="publish-project"
+            type="button"
+            class="download-btn publish-btn"
+            hidden
+          >
+            <span class="download-icon publish-icon"
+              ><svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="12" cy="12" r="10" />
+                <line x1="2" y1="12" x2="22" y2="12" />
+                <path
+                  d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
+                />
+              </svg> </span
+            ><span class="download-text">Publish project</span>
+            <span class="download-spinner" hidden></span>
+          </button>
+          <p class="download-status" id="publish-status" hidden></p>
+          <button
+            id="security-scan"
+            type="button"
+            class="download-btn security-btn"
+            hidden
+          >
+            <span class="download-icon security-icon"
+              ><svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M12 2L4 5v6c0 5.55 3.84 10.74 8 12 4.16-1.26 8-6.45 8-12V5l-8-3z"
+                />
+                <path d="M9 12l2 2 4-4" />
+              </svg> </span
+            ><span class="download-text">Security Analysis</span>
+            <span class="download-spinner" hidden></span>
+          </button>
+          <p class="download-status" id="security-status" hidden></p>
+        </div>
+        <div class="tab-panel" data-panel="chat" hidden>
+          <div class="tab-panel-hint" id="chat-hint">
+            <div class="hint-icon">
+              <svg
+                width="22"
+                height="22"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+                />
+              </svg>
+            </div>
+            <div class="hint-text">
+              <h4 class="hint-title">Open a Lovable project</h4>
+              <p class="hint-msg">
+                Chat becomes available when you are on
+                <code>lovable.dev/projects/&lt;id></code>.
+              </p>
+            </div>
+          </div>
+          <section id="chat-section" class="chat-section" hidden>
+            <header class="chat-section-header">
+              <div class="chat-section-title">
+                <span class="chat-title-icon"
+                  ><svg
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"
+                    /></svg
+                ></span>
+                <div class="chat-section-text">
+                  <span class="chat-title">Chat</span>
+                  <span class="chat-subtitle"
+                    >Send your message in Lovable Chat</span
+                  >
+                </div>
+              </div>
+              <button
+                id="chat-clear-history"
+                type="button"
+                class="chat-clear-btn"
+                title="Clear history"
+                hidden
+              >
+                <svg
+                  width="13"
+                  height="13"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <polyline points="3 6 5 6 21 6" />
+                  <path d="M19 6l-1.5 14a2 2 0 0 1-2 2H8.5a2 2 0 0 1-2-2L5 6" />
+                  <path d="M10 11v6M14 11v6" />
+                  <path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2" />
+                </svg>
+              </button>
+            </header>
+            <div class="chat-view-tabs" role="tablist" aria-label="Chat views">
+              <button
+                id="chat-view-compose"
+                type="button"
+                class="chat-view-tab"
+                data-chat-view="compose"
+                aria-pressed="true"
+              >
+                Chat
+              </button>
+              <button
+                id="chat-view-history"
+                type="button"
+                class="chat-view-tab"
+                data-chat-view="history"
+                aria-pressed="false"
+              >
+                History <span id="chat-view-history-count">0</span>
+              </button>
+            </div>
+            <div class="chat-history-wrap" id="chat-history-wrap" hidden>
+              <div class="chat-history-bar">
+                <span class="chat-history-label">History</span>
+                <span class="chat-history-count" id="chat-history-count"
+                  >0</span
+                >
+              </div>
+              <ul id="chat-history" class="chat-history"></ul>
+            </div>
+            <div class="chat-empty-state" id="chat-empty-state">
+              <div class="chat-empty-icon">
+                <svg
+                  width="34"
+                  height="34"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+                  />
+                </svg>
+              </div>
+              <p class="chat-empty-title">No messages yet</p>
+              <p class="chat-empty-msg">
+                Send your message in<br />Lovable Chat below.
+              </p>
+            </div>
+            <div class="chat-compose" id="chat-compose-view">
+              <div class="chat-input-shell">
+                <textarea
+                  id="chat-input"
+                  class="chat-input"
+                  rows="2"
+                  placeholder="Ask Lovable...  (Ctrl+V pastes images)"
+                  spellcheck="false"
+                ></textarea>
+                <div class="chat-pill-row">
+                  <div class="chat-pill-wrap">
+                    <button
+                      id="chat-mode-pill"
+                      type="button"
+                      class="chat-pill"
+                      data-mode="build"
+                      title="Switch mode"
+                    >
+                      <span class="chat-pill-dot"></span>
+                      <span class="chat-pill-label" id="chat-mode-label"
+                        >Build</span
+                      >
+                      <svg
+                        class="chat-pill-caret"
+                        width="9"
+                        height="9"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2.4"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <polyline points="6 9 12 15 18 9" />
+                      </svg>
+                    </button>
+                    <div
+                      id="chat-mode-menu"
+                      class="chat-mode-menu"
+                      hidden
+                      role="menu"
+                    >
+                      <button
+                        type="button"
+                        class="chat-mode-menu-item"
+                        data-value="build"
+                        role="menuitem"
+                      >
+                        <span class="cmm-dot"></span>
+                        <span class="cmm-text"
+                          ><span class="cmm-title">Build</span>
+                          <span class="cmm-desc"
+                            >The AI writes code and modifies your project.</span
+                          ></span
+                        >
+                      </button>
+                      <button
+                        type="button"
+                        class="chat-mode-menu-item"
+                        data-value="plan"
+                        role="menuitem"
+                      >
+                        <span class="cmm-dot"></span>
+                        <span class="cmm-text"
+                          ><span class="cmm-title">Plan Mode</span>
+                          <span class="cmm-desc"
+                            >The AI drafts a detailed plan before running (uses
+                            ~1 Lovable credit).</span
+                          ></span
+                        >
+                      </button>
+                    </div>
+                  </div>
+                  <div class="chat-pill-wrap">
+                    <button
+                      id="chat-model-pill"
+                      type="button"
+                      class="chat-pill"
+                      title="Switch model"
+                    >
+                      <span
+                        id="chat-model-dot"
+                        class="chat-pill-dot"
+                        style="
+                          background: var(--orange);
+                          box-shadow: 0 0 4px rgba(255, 90, 0, 0.6);
+                        "
+                      ></span>
+                      <span class="chat-pill-label" id="chat-model-label"
+                        >Claude Opus</span
+                      >
+                      <svg
+                        class="chat-pill-caret"
+                        width="9"
+                        height="9"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2.4"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <polyline points="6 9 12 15 18 9" />
+                      </svg>
+                    </button>
+                    <div
+                      id="chat-model-menu"
+                      class="chat-mode-menu chat-model-menu"
+                      hidden
+                      role="menu"
+                    ></div>
+                  </div>
+                </div>
+                <div class="chat-feature-row">
+                  <button
+                    id="chat-shield-mode"
+                    type="button"
+                    class="chat-feature-toggle"
+                    data-feature="shield"
+                    data-state="off"
+                    aria-pressed="false"
+                    title="Protect the Lovable native input"
+                  >
+                    <svg
+                      width="13"
+                      height="13"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2.2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                    </svg>
+                    <span id="chat-shield-label">Shield OFF</span>
+                  </button>
+                  <button
+                    id="chat-native-mode"
+                    type="button"
+                    class="chat-feature-toggle"
+                    data-feature="native"
+                    data-state="off"
+                    aria-pressed="false"
+                    title="Use the Lovable native chat box"
+                  >
+                    <svg
+                      width="13"
+                      height="13"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2.2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path
+                        d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+                      />
+                    </svg>
+                    <span id="chat-native-label">Native OFF</span>
+                  </button>
+                </div>
+                <div class="chat-quick-actions" aria-label="Quick actions">
+                  <button
+                    type="button"
+                    class="chat-quick-action"
+                    data-action="cloud"
+                  >
+                    Enable Lovable Cloud
+                  </button>
+                  <button
+                    type="button"
+                    class="chat-quick-action"
+                    data-action="review"
+                  >
+                    Review
+                  </button>
+                  <button
+                    type="button"
+                    class="chat-quick-action"
+                    data-action="components"
+                  >
+                    Components
+                  </button>
+                  <button
+                    type="button"
+                    class="chat-quick-action"
+                    data-action="ui"
+                  >
+                    UI
+                  </button>
+                  <button
+                    type="button"
+                    class="chat-quick-action"
+                    data-action="seo"
+                  >
+                    SEO
+                  </button>
+                  <button
+                    type="button"
+                    class="chat-quick-action"
+                    data-action="comments"
+                  >
+                    COMMENTS
+                  </button>
+                  <button
+                    type="button"
+                    class="chat-quick-action"
+                    data-action="optimize"
+                  >
+                    optimize
+                  </button>
+                  <button
+                    type="button"
+                    class="chat-quick-action"
+                    data-action="errors"
+                  >
+                    errors
+                  </button>
+                  <button
+                    type="button"
+                    class="chat-quick-action"
+                    data-action="refactor"
+                  >
+                    refactor
+                  </button>
+                  <button
+                    type="button"
+                    class="chat-quick-action"
+                    data-action="bugs"
+                  >
+                    bugs
+                  </button>
+                </div>
+                <ul id="chat-attachments" class="chat-attachments" hidden></ul>
+                <div class="chat-compose-bar">
+                  <div class="chat-compose-actions">
+                    <button
+                      id="chat-improve"
+                      type="button"
+                      class="chat-icon-circle chat-improve-btn"
+                      title="Improve prompt with AI"
+                    >
+                      <span class="chat-improve-icon"
+                        ><svg
+                          width="14"
+                          height="14"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2.2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        >
+                          <path
+                            d="M12 3l1.5 4.5L18 9l-4.5 1.5L12 15l-1.5-4.5L6 9l4.5-1.5L12 3z"
+                          />
+                          <path
+                            d="M19 14l.8 2.4L22 17l-2.2.6L19 20l-.8-2.4L16 17l2.2-.6L19 14z"
+                          />
+                          <path
+                            d="M5 16l.5 1.5L7 18l-1.5.5L5 20l-.5-1.5L3 18l1.5-.5L5 16z"
+                          />
+                        </svg> </span
+                      ><span class="chat-improve-spinner" hidden></span>
+                    </button>
+                    <button
+                      id="chat-attach-image"
+                      type="button"
+                      class="chat-icon-circle"
+                      title="Attach image"
+                    >
+                      <svg
+                        width="14"
+                        height="14"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2.4"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <line x1="12" y1="5" x2="12" y2="19" />
+                        <line x1="5" y1="12" x2="19" y2="12" />
+                      </svg>
+                    </button>
+                    <button
+                      id="chat-record-audio"
+                      type="button"
+                      class="chat-icon-circle"
+                      title="Record audio"
+                    >
+                      <svg
+                        width="14"
+                        height="14"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2.2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <path
+                          d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"
+                        />
+                        <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
+                        <line x1="12" y1="19" x2="12" y2="23" />
+                        <line x1="8" y1="23" x2="16" y2="23" />
+                      </svg>
+                    </button>
+                    <span
+                      class="chat-rec-indicator"
+                      id="chat-rec-indicator"
+                      hidden
+                      ><span class="chat-rec-dot"></span>
+                      <span class="chat-rec-time" id="chat-rec-time"
+                        >00:00</span
+                      > </span
+                    ><input type="file" id="chat-image-input" hidden multiple />
+                  </div>
+                  <div class="chat-compose-meta">
+                    <button
+                      id="chat-send"
+                      type="button"
+                      class="chat-send-circle"
+                      title="Send (Enter) - Shift+Enter inserts a line break"
+                    >
+                      <span class="chat-send-icon"
+                        ><svg
+                          width="15"
+                          height="15"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        >
+                          <line x1="12" y1="19" x2="12" y2="5" />
+                          <polyline points="5 12 12 5 19 12" />
+                        </svg> </span
+                      ><span class="chat-send-spinner" hidden></span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <p class="download-status" id="chat-status" hidden></p>
+          </section>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="footer-meta">
+        <span id="user-email" class="user-email"></span>
+        <span class="connect-title" id="connect-title">Contact</span>
+        <span class="social-links"
+          ><a
+            id="social-website"
+            class="social-link"
+            href=""
+            hidden
+            target="_blank"
+            rel="noreferrer"
+            title="Website"
+            ><svg
+              width="15"
+              height="15"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <circle cx="12" cy="12" r="10" />
+              <path d="M2 12h20" />
+              <path
+                d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
+              />
+            </svg> </a
+          ><a
+            id="social-telegram"
+            class="social-link"
+            href=""
+            hidden
+            target="_blank"
+            rel="noreferrer"
+            title="Telegram"
+            ><svg
+              width="15"
+              height="15"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                d="M21.9 4.1 18.7 19c-.2 1.1-.9 1.4-1.8.9l-5-3.7-2.4 2.3c-.3.3-.5.5-1 .5l.4-5.1 9.3-8.4c.4-.4-.1-.6-.6-.2L6.1 12.5 1.2 11c-1.1-.3-1.1-1.1.2-1.6L20.5 2c.9-.3 1.7.2 1.4 2.1z"
+              />
+            </svg> </a
+          ><a
+            id="social-whatsapp"
+            class="social-link"
+            href=""
+            hidden
+            target="_blank"
+            rel="noreferrer"
+            title="WhatsApp"
+            ><svg
+              width="15"
+              height="15"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                d="M20.5 3.5A11.8 11.8 0 0 0 12.1 0C5.6 0 .3 5.3.3 11.8c0 2.1.6 4.1 1.6 5.9L0 24l6.5-1.7a11.8 11.8 0 0 0 5.6 1.4h.1c6.5 0 11.8-5.3 11.8-11.8 0-3.2-1.2-6.2-3.5-8.4zM12.2 21.7c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.8 1 1-3.7-.2-.4a9.7 9.7 0 1 1 8.4 4.7zm5.3-7.3c-.3-.1-1.7-.8-1.9-.9-.3-.1-.5-.1-.7.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.8-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.5-.6c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.6l-.9-2.1c-.2-.5-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.2-1.2 2.9s1.2 3.3 1.4 3.5c.2.3 2.4 3.7 5.8 5.1.8.4 1.4.6 1.9.7.8.3 1.6.2 2.1.1.7-.1 1.7-.7 1.9-1.3.2-.7.2-1.2.2-1.3-.1-.2-.3-.3-.6-.4z"
+              />
+            </svg> </a></span
+        ><span class="powered-by" id="powered-by"></span>
+      </div>
+      <div class="footer-actions">
+        <button
+          id="lic-change"
+          type="button"
+          class="footer-btn"
+          title="Change license"
+          hidden
+        >
+          <svg
+            width="14"
+            height="14"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path
+              d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"
+            />
+          </svg>
+        </button>
+        <button
+          id="open-options"
+          type="button"
+          class="footer-btn"
+          title="Settings"
+        >
+          <svg
+            width="14"
+            height="14"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path
+              d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"
+            />
+            <circle cx="12" cy="12" r="3" />
+          </svg>
+        </button>
+      </div>
+    </footer>
+    <div
+      id="confirm-modal"
+      class="confirm-modal"
+      hidden
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="confirm-modal-title"
+    >
+      <div class="confirm-modal-backdrop"></div>
+      <div class="confirm-modal-box">
+        <div class="confirm-modal-icon" id="confirm-modal-icon">
+          <svg
+            width="22"
+            height="22"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <polyline points="3 6 5 6 21 6" />
+            <path d="M19 6l-1.5 14a2 2 0 0 1-2 2H8.5a2 2 0 0 1-2-2L5 6" />
+            <path d="M10 11v6M14 11v6" />
+            <path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2" />
+          </svg>
+        </div>
+        <h3 class="confirm-modal-title" id="confirm-modal-title">Confirm?</h3>
+        <p class="confirm-modal-msg" id="confirm-modal-msg"></p>
+        <div class="confirm-modal-actions">
+          <button
+            id="confirm-modal-cancel"
+            type="button"
+            class="confirm-modal-btn confirm-modal-cancel"
+          >
+            Cancel
+          </button>
+          <button
+            id="confirm-modal-confirm"
+            type="button"
+            class="confirm-modal-btn confirm-modal-confirm"
+          >
+            Confirm
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      id="security-modal"
+      class="security-modal"
+      hidden
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="security-modal-title"
+    >
+      <div class="security-modal-backdrop"></div>
+      <div class="security-modal-box">
+        <header class="security-modal-header">
+          <div class="security-modal-title-wrap">
+            <span class="security-modal-icon"
+              ><svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M12 2L4 5v6c0 5.55 3.84 10.74 8 12 4.16-1.26 8-6.45 8-12V5l-8-3z"
+                /></svg
+            ></span>
+            <h3 class="security-modal-title" id="security-modal-title">
+              Security Analysis
+            </h3>
+          </div>
+          <button
+            id="security-modal-close"
+            type="button"
+            class="security-modal-close"
+            aria-label="Close"
+          >
+            ×
+          </button>
+        </header>
+        <div class="security-summary" id="security-summary"></div>
+        <div class="security-actions">
+          <button
+            id="security-rescan"
+            type="button"
+            class="security-rescan-btn"
+          >
+            <span class="security-rescan-icon"
+              ><svg
+                width="13"
+                height="13"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <polyline points="23 4 23 10 17 10" />
+                <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10" />
+              </svg> </span
+            ><span class="security-rescan-text">Scan again now</span>
+            <span class="security-rescan-spinner" hidden></span>
+          </button>
+          <button
+            id="security-fix-all"
+            type="button"
+            class="security-fixall-btn"
+            hidden
+          >
+            <span class="security-fixall-icon"
+              ><svg
+                width="13"
+                height="13"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.4"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"
+                />
+              </svg> </span
+            ><span class="security-fixall-text">Fix All</span>
+            <span class="security-fixall-spinner" hidden></span>
+          </button>
+        </div>
+        <div class="security-body" id="security-body"></div>
+      </div>
+    </div>
+    <div
+      id="create-project-modal"
+      class="create-modal"
+      hidden
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="create-modal-title"
+    >
+      <div class="create-modal-backdrop"></div>
+      <div class="create-modal-box">
+        <header class="create-modal-header">
+          <div class="create-modal-title-wrap">
+            <span class="create-modal-icon"
+              ><svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <line x1="12" y1="5" x2="12" y2="19" />
+                <line x1="5" y1="12" x2="19" y2="12" /></svg
+            ></span>
+            <div class="create-modal-text">
+              <h3 class="create-modal-title" id="create-modal-title">
+                Create New Project
+              </h3>
+              <p class="create-modal-sub">
+                Lovable will generate a new project from your description.
+              </p>
+            </div>
+          </div>
+          <button
+            id="create-modal-close"
+            type="button"
+            class="create-modal-close"
+            aria-label="Close"
+          >
+            ×
+          </button>
+        </header>
+        <div class="create-modal-body">
+          <label class="create-field-label" for="create-prompt"
+            >Describe what you want to build</label
+          >
+          <textarea
+            id="create-prompt"
+            class="create-prompt"
+            rows="4"
+            placeholder="Example: Create a scheduling app for a barbershop with calendar, clients, services, and payments."
+            spellcheck="false"
+          ></textarea>
+          <label class="create-checkbox"
+            ><input type="checkbox" id="create-plan-mode" />
+            <span class="create-checkbox-box"></span>
+            <span class="create-checkbox-label"
+              ><span class="cc-title">Start in Plan Mode</span>
+              <span class="cc-desc"
+                >The AI creates a detailed plan before running (~1
+                credit).</span
+              ></span
+            ></label
+          >
+          <p class="create-modal-status" id="create-status" hidden></p>
+        </div>
+        <footer class="create-modal-actions">
+          <button
+            id="create-cancel-btn"
+            type="button"
+            class="create-btn create-btn-cancel"
+          >
+            Cancel
+          </button>
+          <button
+            id="create-confirm-btn"
+            type="button"
+            class="create-btn create-btn-confirm"
+          >
+            <span class="create-btn-text">Create project</span>
+            <span class="create-btn-spinner" hidden></span>
+          </button>
+        </footer>
+      </div>
+    </div>
+    <script src="upload-recovery.js"></script>
+    <script src="project-guide-gate.js"></script>
+    <script type="module" src="popup.js"></script>
+  </body>
+</html>
